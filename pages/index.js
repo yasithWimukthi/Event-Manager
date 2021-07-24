@@ -1,5 +1,6 @@
 import React from "react";
 import {getFeaturedEvents} from "../dummy-data";
+import EventList from "../components/events/event-list.component";
 
 export default function Home() {
 
@@ -7,9 +8,7 @@ export default function Home() {
 
   return (
     <div>
-      <ul>
-          
-      </ul>
+        <EventList items={featuredEvents}/>
     </div>
   )
 }

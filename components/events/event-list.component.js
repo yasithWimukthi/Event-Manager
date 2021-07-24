@@ -9,7 +9,14 @@ const EventList = props => {
         <ul>
             {
                 // eslint-disable-next-line react/jsx-key
-                items.map(item => <EventItem />)
+                items.map(event => <EventItem
+                    key={event.id}
+                    id={event.id}
+                    title={event.title}
+                    location={event.location}
+                    data={event.data}
+                    image={event.image}
+                />)
             }
         </ul>
     );
