@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import classes from './event-item.module.css';
+import Button from "../ui/button.component";
 
 const EventItem = props => {
 
@@ -30,7 +31,7 @@ const EventItem = props => {
                     </div>
                 </div>
                 <div className={classes.actions}>
-                    <Link href={exploreEvent}> Explore Event</Link>
+                    <Button link={exploreEvent}>Explore Event</Button>
                 </div>
             </div>
         </li>
