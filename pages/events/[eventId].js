@@ -19,8 +19,15 @@ export default function EventDetailPage(){
     return(
         <>
             <EventSummary/>
-            <EventLogistics/>
-            <EventContent/>
+            <EventLogistics
+                date={event.date}
+                address={event.location}
+                image={event.image}
+                imageAlt={event.title}
+            />
+            <EventContent>
+                <p>{event.description}</p>
+            </EventContent>
         </>
     )
 }
