@@ -15,7 +15,7 @@ const EventsSearch = props =>{
     }
 
     return(
-        <form className={classes.form}>
+        <form className={classes.form} onSubmit={submitHandler}>
             <div className={classes.controls}>
                 <div className={classes.control}>
                    <label htmlFor='year'>Year</label>
