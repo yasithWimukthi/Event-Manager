@@ -4,6 +4,7 @@ import {getFilteredEvents} from "../../dummy-data";
 import EventList from "../../components/events/event-list.component";
 import ResultsTitle from "../../components/events/results-title";
 import Button from "../../components/ui/button.component";
+import ErrorAlert from "../../components/ui/error-alert";
 
 export default function FilteredEventsPage(){
 
@@ -25,7 +26,14 @@ export default function FilteredEventsPage(){
         filteredMonth < 1 ||
         filteredMonth>12
     ){
-        return <p>Invalid filter.</p>
+        return (
+            <>
+                <ErrorAlert>
+                    <p>Invalid filter.</p>
+                </ErrorAlert>
+                <Button link='/events'>Show all events.</Button>
+            </>
+        )
     }
 
     const filteredEvents = getFilteredEvents({
@@ -36,7 +44,9 @@ export default function FilteredEventsPage(){
     if(!filteredEvents || filteredEvents.length === 0){
         return (
             <>
-                <p>No events found!</p>
+                <ErrorAlert>
+                    <p>No events found!</p>
+                </ErrorAlert>
                 <Button link='/events'>Show all events.</Button>
             </>
         )
