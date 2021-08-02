@@ -2,6 +2,8 @@ import React from "react";
 import {useRouter} from "next/router";
 import {getFilteredEvents} from "../../dummy-data";
 import EventList from "../../components/events/event-list.component";
+import ResultsTitle from "../../components/events/results-title";
+import Button from "../../components/ui/button.component";
 
 export default function FilteredEventsPage(){
 
@@ -32,12 +34,20 @@ export default function FilteredEventsPage(){
     });
 
     if(!filteredEvents || filteredEvents.length === 0){
-        return <p>No events found!</p>
+        return (
+            <>
+                <p>No events found!</p>
+                <Button link='/events'>Show all events.</Button>
+            </>
+        )
     }
 
+    const date = new Date(filteredYear,filteredMonth-1);
+
     return(
-        <div>
+        <>
+            <ResultsTitle date={date}/>
             <EventList items={filteredYear}/>
-        </div>
+        </>
     )
 }
